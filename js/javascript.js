@@ -11,7 +11,7 @@ function initializeGrid(gridSize) {
             div.style.height = 960 / gridSize + 'px';
             div.style.width = 960 / gridSize + 'px';
             div.style.border = '1px solid black';
-            div.style.opacity = 0;
+            div.style.opacity = 0.1;
             div.addEventListener('mouseenter', () => {
                 div.style.backgroundColor = selectRandomValue();
                 opacity += 0.1;
