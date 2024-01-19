@@ -7,11 +7,15 @@ function initializeGrid(gridSize) {
         grids.push([]);
         for (let j = 0; j < gridSize; j++) {
             let div = document.createElement('div');
+            let opacity = 0;
             div.style.height = 960 / gridSize + 'px';
             div.style.width = 960 / gridSize + 'px';
             div.style.border = '1px solid black';
+            div.style.opacity = 0;
             div.addEventListener('mouseenter', () => {
-                div.style.backgroundColor = 'black';
+                div.style.backgroundColor = selectRandomValue();
+                opacity += 0.1;
+                div.style.opacity = opacity
             });
             grids[i].push(div);
         }
@@ -25,6 +29,15 @@ function initializeGrid(gridSize) {
         }
         container.appendChild(div);
     }
+}
+
+function selectRandomValue() {
+    let list = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
+    let randomValue = '#';
+    for (let i = 0; i < 6; i++) {
+        randomValue += list[Math.floor(Math.random()*16)];
+    }
+    return randomValue;
 }
 
 const reset = document.querySelector('#reset');
